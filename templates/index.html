@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/button.css">
+    <script type="module" defer src="js/modal/editNames.js"></script>
+    <script type="module" defer src="js/dragable/MultiSortable.js"></script>
+    <script defer src="js/index.js"></script>
+    <title>Proportional borda allocations</title>
+</head>
+<body>
+    <header class="header">
+        <img src="/templates/icons/icon.png" class="icon"/>
+        <div class="title">
+            <span>חלוקה פְּרוֹפּוֹרְצְיוֹנָלִית על פי בורדה</span>
+        </div>
+    </header>
+    <div class="content">
+       
+        <div class="inputs">
+            <div class="agents-input input">
+                <label for="numAgents">הכנס מספר שחקנים:</label>
+                <span class="input-border">
+                    <input type="number" id="numAgents" min="1" value="1">
+                </span>
+                <button id="edit-players-button" class="button-30">ערוך שמות שחקנים</button>
+            </div>
+            <div class="items-input input">
+                <label for="numItems">הכנס מספר פריטים:</label>
+                <span class="input-border">
+                    <input type="number" id="numItems" min="1" value="1">
+                </span>
+                <button id="edit-items-button"  class="button-30">ערוך שמות פריטים</button>
+            </div>
+            <button class="runAlgo button-33" id="runAlgo" onclick="runAlgo()">הרץ אלגוריתם</button>
+        </div>
+        <div class="Note">
+            <div>גרור את האלמנטים כדיי לסדר את העדיפויות</div>
+        </div>
+        
+        <div class="preferences"></div>
+   
+    
+        <edit-names-modal id="edit-players-modal">
+        </edit-names-modal>
+        <edit-names-modal id="edit-items-modal">
+        </edit-names-modal>
+    </div>
+
+   
+
+</body>
+</html>
