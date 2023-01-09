@@ -55,7 +55,7 @@ class EditNamesModal extends Modal {
         this._shadowRoot.appendChild(style); 
         const styleButton = document.createElement('link');
         styleButton.setAttribute('rel','stylesheet');
-        styleButton.href = './css/button.css';
+        styleButton.href = 'static/styles/button.css';
         this._shadowRoot.appendChild(styleButton);
     }
 

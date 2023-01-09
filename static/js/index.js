@@ -105,7 +105,6 @@ function updateNumberItems(){
         }
         while(preference.items.length > nameOfItems.length){
             const len = preference.items.length;
-            console.log(preference.getItemById('item_3'));
             preference.getItemById(`item_${len -1}`).remove();
         }
     }

@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/button.css">
-    <script type="module" defer src="js/modal/editNames.js"></script>
-    <script type="module" defer src="js/dragable/MultiSortable.js"></script>
-    <script defer src="js/index.js"></script>
+    <!-- <link rel="stylesheet" href="./styles/index.css"> -->
+    <!-- <link rel="stylesheet" href= "{{url_for('static',filename='/styles/index.css') }}">
+    <link rel="stylesheet" href= "{{url_for('static',filename='/styles/button.css') }}"> -->
+    <script type="module" src="{{ url_for('static', filename='js/modal/editNames.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/dragable/MultiSortable.js') }}"></script>
+    <script defer type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
     <title>Proportional borda allocations</title>
 </head>
 <body>
-    <header class="header">
-        <img src="/templates/icons/icon.png" class="icon"/>
-        <div class="title">
-            <span>חלוקה פְּרוֹפּוֹרְצְיוֹנָלִית על פי בורדה</span>
-        </div>
-    </header>
+    {% extends "layout.html" %}
+    {% block mycontents %}
     <div class="content">
-       
+        
         <div class="inputs">
             <div class="agents-input input">
                 <label for="numAgents">הכנס מספר שחקנים:</label>
@@ -49,7 +46,8 @@
         <edit-names-modal id="edit-items-modal">
         </edit-names-modal>
     </div>
-
+    
+    {% endblock %} 
    
 
 </body>

@@ -1,13 +1,15 @@
 from flask import Flask, render_template
-# app = Flask(__name__, static_url_path='',static_folder='./client')
+# app = Flask(__name__, template_folder='templates',static_folder='static')
 app = Flask(__name__)
 
 
 @app.route('/')
-def hello_flask1():
-  return  render_template('./index3.html')
+def input():
+  return  render_template('input.html')
 
-
+@app.route('/output')
+def output():
+  return render_template('output.html')
 # @app.route('/')
 # def hello_flask1():
 #     with open(file='./index.html') as f:
