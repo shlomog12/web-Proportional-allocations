@@ -10,6 +10,10 @@ window.onload = ()=>{
     initPlayersModal();
     initItemsModal();
     createPreferences();
+    // const p2 = document.getElementById('input_data');
+    // p2.value = 'test test3';
+    // const myform = document.getElementById('myform');
+    // myform.submit();
 };
 
 function initPlayersModal(){
