@@ -68,16 +68,6 @@ function createPreferences(){
     for (const [key, value] of Object.entries(names)) { 
         createListItemOfPlayer(key, value);
     }
-
-
-
-
-
-
-
-
-
-
 }
 
 function updateNumberItems(){
@@ -194,7 +184,6 @@ document.getElementById('edit-items-button').addEventListener('click', ()=>{
     itemsModal.openModal();
 });
 
-// agents_to_test_0 = AgentList({"Shlomo": {"A": 0, "B": 1, "C": 2, "D": 3},"Shira": {"A": 2, "B": 0, "C": 1, "D": 3},"Hadar": {"A": 2, "B": 0, "C": 1, "D": 3},"Or": {"A": 3, "B": 2, "C": 1, "D": 0}})
 function getAgentList(){
     const preferences = Array.from(document.querySelector('.preferences').childNodes);
     const agentList = {}; 
@@ -216,5 +205,4 @@ function runAlgo(){
     input_data.value = JSON.stringify(agentList);
     const myform = document.getElementById('myform');
     myform.submit();
-    console.log(agentList);
 }

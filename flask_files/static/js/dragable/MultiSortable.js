@@ -85,7 +85,6 @@ export class MultiSortable extends HTMLElement {
         }
     }
 
-
   }
 
 customElements.define('sort-able', MultiSortable);

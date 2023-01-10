@@ -133,7 +133,6 @@ def proportional_division(agents: AgentList) -> Allocation:
     """
     n = len(agents)
     k = len(agents.all_items())
-    print(agents)
     if not k % n == 0:
         raise ValueError(f"The number of items must be multiple of the number of agents, but they are not: {k}, {n}")
     if isEven(k/n):

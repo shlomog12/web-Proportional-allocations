@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./styles/index.css"> -->
-    <!-- <link rel="stylesheet" href= "{{url_for('static',filename='/styles/index.css') }}">
-    <link rel="stylesheet" href= "{{url_for('static',filename='/styles/button.css') }}"> -->
     <script type="module" src="{{ url_for('static', filename='js/modal/editNames.js') }}"></script>
-    <!-- <script type="module" src="{{ url_for('static', filename='js/dragable/MultiSortable.js') }}"></script> -->
+    <script type="module" src="{{ url_for('static', filename='js/dragable/MultiSortable.js') }}"></script>
     <script defer type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
     <title>Proportional borda allocations</title>
 </head>
@@ -36,16 +33,12 @@
         <div class="Note">
             <div>גרור את האלמנטים כדיי לסדר את העדיפויות</div>
         </div>
-        
-        
         <div class="preferences"></div>
-
         <form action="/output" method="post" id="myform"  hidden>
             <input type="text" id="input_data" name="input_data">
             <input type="submit" value="Submit" id="submitData">
-          </form> 
+        </form> 
    
-
         <edit-names-modal id="edit-players-modal">
         </edit-names-modal>
         <edit-names-modal id="edit-items-modal">
