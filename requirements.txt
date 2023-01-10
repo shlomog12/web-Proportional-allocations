@@ -1,0 +1,3 @@
+fairpy @ git+https://github.com/erelsgl/fairpy.git
+networkx
+flask
