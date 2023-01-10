@@ -12,15 +12,15 @@
     <div style="margin-top: 65px;">
 
         <div class="title-output">
-            {% if agents %}
+            {% if agents_retults %}
                 <div>תוצאות החלוקה</div>
             {% else %}
                 <div>לא קיימת חלוקה פרופורציונלית</div>
             {% endif %}
         </div>
-        <div class="data_output">
-            {% if agents %}
-                {% for agent in agents %}
+        {% if agents_retults %}
+            <div class="data_output">
+                {% for agent in agents_retults %}
                     <div class="list-item-of-agent">
                         <div style="text-align: center;">{{agent.name}}</div>
                         {% for item in agent.all_items %}
@@ -30,8 +30,22 @@
                         
                     </div>
                 {% endfor %}
-            {% endif %}
-        </div>
+            </div>
+            <div class="title-output">
+                <div>קלט:</div>
+            </div>
+            <div class="data_output">
+                {% for agent in input_to_show %}
+                    <div class="list-item-of-agent">
+                        <div style="text-align: center;">{{agent.name}}</div>
+                        {% for item in agent.all_items %}
+                            <div class="item-of-agent">{{ item }}</div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+       
+        {% endif %}
     </div>
     {% endblock %} 
 </body>

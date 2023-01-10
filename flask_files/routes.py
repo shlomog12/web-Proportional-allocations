@@ -12,13 +12,14 @@ def input():
 @app.route('/output', methods=['POST'])
 def output():
   data = request.form['input_data']
-  agents = AgentList(json.loads(data))
+  jsonDataInput = json.loads(data)
+  agents = AgentList(jsonDataInput)
   if (len(agents) == len(agents.all_items())):
     allocation = proportional_division_equal_number_of_items_and_players(agents)
   else:
     allocation = proportional_division(agents)
   if not allocation:
-    return render_template('output.html', agents=None)
+    return render_template('output.html')
   bundles = allocation.bundles
   agents_retults = []
   for i in range(len(agents)):
@@ -29,7 +30,19 @@ def output():
         'all_items': bundles[i],
         'total_value': cur_agent.value(bundles[i]),
       }
+  )
+  input_to_show = []
+  for k,v in jsonDataInput.items():
+    input_to_show.append(
+      {
+        'name': k,
+        'all_items': list(v.keys())
+      }
     )
-  return render_template('output.html', agents=agents_retults)
+  print(input_to_show)
+
+  # print(jsonDataInput)
+  
+  return render_template('output.html', agents_retults=agents_retults,input_to_show=input_to_show)
 
      
