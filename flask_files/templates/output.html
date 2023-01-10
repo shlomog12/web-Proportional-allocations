@@ -9,7 +9,32 @@
 <body>
     {% extends "layout.html" %}
     {% block mycontents %}
-    <p class="data33">The input data is: {{ data }}</p>
+    <div style="margin-top: 65px;">
+
+        <div class="title-output">
+            {% if agents %}
+                <div>תוצאות החלוקה</div>
+            {% else %}
+                <div>לא קיימת חלוקה פרופורציונלית</div>
+            {% endif %}
+        </div>
+        <div class="data_output">
+            {% if agents %}
+                {% for agent in agents %}
+                    <div class="list-item-of-agent">
+                        <div style="text-align: center;">{{agent.name}}</div>
+                        {% for item in agent.all_items %}
+                            <div class="item-of-agent">{{ item }}</div>
+                        {% endfor %}
+                        <div style="text-align: center;">סך הכל ערך: {{agent.total_value}}</div>
+                        
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+    </div>
+
     {% endblock %} 
 </body>
 </html>

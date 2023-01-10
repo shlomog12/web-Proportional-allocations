@@ -47,11 +47,7 @@ export class MultiSortable extends HTMLElement {
         const newStyle = document.createElement('style');
         newStyle.innerHTML = style;
         this._shadowRoot.appendChild(newStyle);
-        new Sortable(this._listItems, {
-            animation: 150,
-            // ghostClass: 'blue-background-class',
-            chosenClass: 'chosenClass'
-        });
+
     }
 
     insertItems(mapOfNewItems){
@@ -78,6 +74,15 @@ export class MultiSortable extends HTMLElement {
 
     get title(){
         return this._title.textContent;
+    }
+
+    set sortable(isSortable){
+        if (isSortable){
+            new Sortable(this._listItems, {
+                animation: 150,
+                chosenClass: 'chosenClass'
+            });
+        }
     }
 
 

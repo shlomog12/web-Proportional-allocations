@@ -2,6 +2,7 @@ const numAgentsElement = document.getElementById('numAgents');
 const numItemsElement = document.getElementById('numItems');
 const playersModal =document.getElementById('edit-players-modal');
 const itemsModal =document.getElementById('edit-items-modal');
+const preferences = document.querySelector('.preferences');
 
 let namesOfPlayers = ['שחקן 0'];
 let nameOfItems = ['פריט 0'];
@@ -40,7 +41,6 @@ function setNamesPlayers(len){
 
 function updatePlayersName(){
     const names = playersModal.names;
-    const preferences = document.querySelector('.preferences');
     players_ids = Object.keys(names);
     for (let index = 0; index < players_ids.length; index++) {
         const id = players_ids[index];
@@ -58,27 +58,26 @@ function updateItemsName(){
         const current_items = preference.items;
         for (let index = 0; index < Object.keys(names).length; index++) {
             const item = current_items[index];
-            if (!names[item.id]){
-                console.log(item.id);
-                console.log(names);
-                console.log(preference.items);
-            }else{
-                item.textContent = names[item.id];
-            }
+            if (names[item.id]) item.textContent = names[item.id];
         } 
     }
 }
 
 function createPreferences(){
     const names = playersModal.names;
-    const preferences = document.querySelector('.preferences');
     for (const [key, value] of Object.entries(names)) { 
-            const element = document.createElement('sort-able');
-            element.setAttribute('id',`preferences-${key}`);
-            element.insertItems(itemsModal.names);
-            element.title = value;
-            preferences.appendChild(element);
+        createListItemOfPlayer(key, value);
     }
+
+
+
+
+
+
+
+
+
+
 }
 
 function updateNumberItems(){
@@ -114,9 +113,18 @@ function updateNumberItems(){
     
 }
 
+
+function createListItemOfPlayer(key, value, sortable=true){
+    const element = document.createElement('sort-able');
+    element.sortable = sortable;
+    element.setAttribute('id',`preferences-${key}`);
+    element.insertItems(itemsModal.names);
+    element.title = value;
+    preferences.appendChild(element);
+}
+
 function updatePreferences(){
     const names = playersModal.names;
-    const preferences = document.querySelector('.preferences');
     const old_len = preferences.children.length;
     players_ids =  Object.keys(names);
     const new_len = players_ids.length;
@@ -124,11 +132,7 @@ function updatePreferences(){
         for (let index = old_len; index < new_len; index++) {
             const key = players_ids[index];
             const value = names[key];
-            const element = document.createElement('sort-able');
-            element.setAttribute('id',`preferences-${key}`);
-            element.insertItems(itemsModal.names);
-            element.title = value;
-            preferences.appendChild(element);
+            createListItemOfPlayer(key, value);
         }
     }else if (old_len > new_len){   //down
         while(preferences.children.length > new_len){
